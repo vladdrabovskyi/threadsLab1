@@ -16,17 +16,17 @@ public class SequenceManager {
 
     public void startThreads() {
         for (SequenceCalculator calculator : calculators) {
-            calculator.start(); // запускаємо обчислювальні потоки
+            calculator.start(); // старт обчислювальних потоків
         }
 
-        new Thread(this::stopThreadsOneByOne).start(); // керуючий потік для зупинки
+        new Thread(this::stopThreadsOneByOne).start(); // керуючий потік
     }
 
     private void stopThreadsOneByOne() {
         for (SequenceCalculator calculator : calculators) {
             try {
                 Thread.sleep(delayBetweenStops); // чекаємо перед зупинкою наступного потоку
-                calculator.stopCalculation();    // зупиняємо потік
+                calculator.stopCalculation();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -22,13 +22,13 @@ public class SequenceCalculator extends Thread {
             elementCount++;             // збільшуємо лічильник елементів
 
             try {
-                Thread.sleep(100);      // додаємо паузу для видимості роботи
+                Thread.sleep(100);      // додаємо паузу для видимості
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
 
-        // Виводимо результат, коли потік завершує роботу
+        // Результат після того як потік завершує роботу
         System.out.println("Потік #" + threadNumber + ": Сума = " + sum + ", Кількість елементів = " + elementCount);
     }
 
